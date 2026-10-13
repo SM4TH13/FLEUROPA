@@ -1,0 +1,700 @@
+/* ========================================
+   FLEUROPA - Minimal Stylesheet
+   ======================================== */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #fdfaff;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* ========================================
+   Header & Navigation
+   ======================================== */
+
+header {
+    padding: 2rem 4rem;
+    border-bottom: 1px solid #000000;
+    background: #c6c6c6;
+}
+
+header .a {
+	color: #18272F;
+  position: relative;
+  text-decoration: none;
+}
+
+header .a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #18272F;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+header .a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-fleuropa {
+    height: 40px; 
+    width: auto;
+    vertical-align: middle; 
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #871945;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    font-weight: 400;
+}
+
+.nav-links a:hover {
+    color: #871945;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+
+.hero {
+    max-width: 800px;
+    margin: 8rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.hero h3 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: #1a1a1a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: #333;
+}
+
+/* ========================================
+   Collections Section
+   ======================================== */
+
+.collections {
+    max-width: 1200px;
+    margin: 8rem auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+}
+
+.collection-item {
+
+    border: 1px solid #f0f0f0; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    padding: 15px; 
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.collection-number {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.collection-item h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.collection-item p {
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 300;
+}
+
+
+.collection-item {
+    width: 280px; 
+    height: auto; 
+}
+
+.collection-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.collection-item img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 4px; 
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   Values Section
+   ======================================== */
+
+.values {
+    max-width: 1200px;
+    margin: 8rem auto;
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.value-item {
+    text-align: center;
+    flex: 1;
+}
+
+.value-item h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.value-item p {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.divider {
+    width: 1px;
+    height: 50px;
+    background: #e0e0e0;
+    margin: 0 2rem;
+}
+
+/* ========================================
+   Info Section
+   ======================================== */
+
+.info {
+    max-width: 1200px;
+    margin: 8rem auto;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+}
+
+.info-block h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.info-block p {
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid #e0e0e0;
+    background: #fff;
+    margin-top: 8rem;
+}
+
+footer p {
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 2rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .hero {
+        margin: 4rem auto;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .collections {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 2rem;
+        margin: 4rem auto;
+    }
+
+    .values {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .divider {
+        width: 50px;
+        height: 1px;
+        margin: 0;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 2rem;
+        margin: 4rem auto;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+/* --- Variables et Styles de Base --- */
+:root {
+    /* Couleur principale (pour le bouton, les liens, etc.) */
+    --primary-color: #007bff; 
+    /* Couleur de fond du corps */
+    --background-color: #f4f7f6; 
+    /* Couleur du fond du formulaire/carte */
+    --card-background: #ffffff;
+    /* Police par défaut */
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Conteneur Principal et Centrage --- */
+.login-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;    /* Centre verticalement */
+    min-height: 100vh;      /* Prend toute la hauteur de la fenêtre */
+    padding: 20px;
+}
+
+/* --- Style de la Carte de Connexion --- */
+.login-card {
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    width: 100%;
+    max-width: 400px; /* Limite la largeur du formulaire */
+    text-align: center;
+}
+
+/* --- Titres et Texte --- */
+.login-card h2 {
+    color: #871945;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.login-card p {
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+/* --- Formulaire et Éléments de Saisie --- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login-form label {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.login-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Effet de focus */
+}
+
+/* --- Bouton de Connexion --- */
+.btn-login {
+    background-color: #511f33;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-login:hover {
+    background-color: #871945; /* Couleur plus foncée au survol */
+}
+
+.btn-login:active {
+    transform: translateY(1px); /* Effet de clic */
+}
+
+/* --- Lien d'Inscription --- */
+.signup-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.signup-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+
+
+
+.signup-text a:hover {
+    color: #871945;
+    text-decoration: underline;
+}
+
+/* --- Responsive (pour les petits écrans) --- */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px;
+        margin: 10px;
+    }
+    
+    .login-card h2 {
+        font-size: 1.6em;
+    }
+    
+    .btn-login {
+        padding: 12px;
+    }
+}
+
+/* --- Conteneur de la Grille (GRID) : VÉRIFIEZ CE BLOC --- */
+.boutiques-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 30px; 
+    padding: 30px;
+    max-width: 1300px; /* Augmenté légèrement pour plus de clarté */
+    margin: 0 auto; 
+}
+
+/* --- Style de la Carte de Boutique --- */
+.boutique-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.boutique-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Typographie et Contenu --- */
+.boutique-card h3 {
+    color: #573b8a;
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.adresse {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.proximite {
+    font-style: italic;
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+/* --- Bouton "Voir sur la carte" --- */
+.btn-map {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.btn-map:hover {
+    background-color: #0056b3;
+}
+
+
+/* --- Espace Réservé à la Carte (Simulé) --- */
+.placeholder-map {
+    height: 150px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-size: 0.8em;
+    overflow: hidden; 
+}
+
+/* --- Responsive pour les Mobiles --- */
+@media (max-width: 768px) {
+    .boutiques-grid-container {
+        /* Passe à 1 colonne sur les petits écrans */
+        grid-template-columns: 1fr; 
+        padding: 20px;
+    }
+}
+
+/* Utilise le même style de base et de grille que 'boutiques-style.css' (body, header, .bouquets-grid-container, etc.) */
+
+/* --- Conteneur de la Grille (Adaptation du CSS précédent) --- */
+.bouquets-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 30px; 
+    padding: 40px;
+    max-width: 1300px; 
+    margin: 0 auto; 
+}
+
+/* --- Style du Lien de la Carte --- */
+.bouquet-card-link {
+    text-decoration: none; /* Supprime le soulignement du lien */
+    color: inherit;
+    display: block; /* S'assure que le lien prend toute la place de la grille */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bouquet-card-link:hover {
+    transform: translateY(-5px); /* Effet de soulèvement */
+}
+
+/* --- Style de la Carte de Bouquet --- */
+.bouquet-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Important pour contenir l'image */
+    height: 100%; /* S'assure que toutes les cartes ont la même hauteur dans la grille */
+}
+
+/* --- Image du Bouquet --- */
+.bouquet-image-placeholder  {
+    max-width: 50%; 
+    height: auto; 
+    border-radius: 4px; 
+    margin-bottom: 10px;
+}
+.bouquet-img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover; /* Recadre l'image pour couvrir la zone sans la déformer */
+    transition: transform 0.3s;
+}
+
+.bouquet-card-link:hover .bouquet-img {
+    transform: scale(1.05); /* Zoom subtil au survol */
+}
+
+/* --- Infos du Bouquet --- */
+.bouquet-info {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.bouquet-info h3 {
+    color: #573b8a;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.prix-apercu {
+    color: #38761d; /* Vert pour le prix */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.voir-details {
+    display: block;
+    color: #007bff;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+
+.magasin-detail-card {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background: #fff;
+}
+.magasin-detail-card h2 {
+    color: #871945;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+.magasin-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+}
+.magasin-info strong {
+    display: inline-block;
+    width: 120px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+

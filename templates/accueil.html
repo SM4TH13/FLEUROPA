@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleuropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="/accueil">FLEUROPA</a></div>
+            <ul class="nav-links">
+                <li><a href="/bouquets">Bouquets</a></li>
+                <li><a href="/boutiques">Boutiques</a></li>
+                <li><a href="/panier">Panier</a></li>
+                {% if client == None %}
+                <li><a href="/connecter">Se Connecter</a></li>
+                {% else %}
+                <li><a href="/client">{{ client }}</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Fleurs fraîches,<br>livrées partout en France</h1>
+            <p>Simplicité. Qualité. Élégance.</p>
+            <a href="#bouquets" class="btn">Découvrir</a>
+        </section>
+
+
+        <section class="hero">
+            <h3>TOP SELLERS <br>5 BOUQUETS À OFFRIR</h3>
+            
+        </section>
+
+        <section class="collections" id="bouquets">
+            {% for bouquet in liste_bouquet %}
+            <a href="/bouquets/{{ bouquet.idbouquet}}" class="collection-item">
+                <div class="collection-number">{{ bouquet.taille }}</div>
+                
+                <img src="{{ url_for('static', filename=bouquet.photobouquet) }}">
+                
+                <h3>{{ bouquet.modele }}</h3> 
+                <p>{{ bouquet.prixunitaire }}€</p> 
+            </a>
+            {% endfor %}
+        </section>
+
+        <section class="values" id="services">
+            <div class="value-item">
+                <h4>Livraison 24h</h4>
+                <p>Partout en France</p>
+            </div>
+            <div class="divider"></div>
+            <div class="value-item">
+                <h4>Fleurs fraîches</h4>
+                <p>Qualité garantie</p>
+            </div>
+            <div class="divider"></div>
+            <div class="value-item">
+                <h4>Éco-responsable</h4>
+                <p>Emballage recyclable</p>
+            </div>
+        </section>
+
+        <section class="info" id="contact">
+            <div class="info-block">
+                <h4>Contact</h4>
+                <p>contact@fleuropa.fr</p>
+                <p>01 23 45 67 89</p>
+            </div>
+            <div class="info-block">
+                <h4>Horaires</h4>
+                <p>Lun - Sam: 9h - 19h</p>
+                <p>Dimanche: 10h - 18h</p>
+            </div>
+            <div class="info-block">
+                <h4>Adresse</h4>
+                <p>30 magasins</p>
+                <p>Partout en France</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Fleuropa — Tous droits réservés</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Livraison - Fleuropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav><div class="logo"><a href="/accueil">FLEUROPA</a></div></nav>
+    </header>
+
+    <main style="max-width: 1000px; margin: 40px auto; padding: 20px;">
+        <h2>📦VALIDER LA COMMANDE</h2>
+
+        <form action="/valider_commande" method="POST" style="display: flex; gap: 40px; flex-wrap: wrap;">
+            {% if client != None %}
+            <div class="magasin-detail-card" style="flex: 1; min-width: 300px;">
+                <h3>👤 Client (Facturation)</h3>
+                <p><em>Connecté en tant que :</em></p>
+                
+                <label>Nom Complet :</label>
+                <input type="text" value="{{ client.nom }} {{ client.prenom }}" disabled style="background: #eee; width: 100%; margin-bottom: 10px;">
+                
+                <label>Email :</label>
+                <input type="text" value="{{ client.mail }}" disabled style="background: #eee; width: 100%; margin-bottom: 10px;">
+                
+                <label>Téléphone :</label>
+                <input type="text" value="{{ client.numtelcl }}" disabled style="background: #eee; width: 100%;">
+
+                <label>Rue :</label>
+                <input type="text" value="{{ client.adresse_rue }}" disabled style="background: #eee; width: 100%;"
+                
+                <label>Code Postal :</label>
+                <input type="text" value="{{ client.adresse_cp }}" disabled style="background: #eee; width: 100%;">>
+
+                <label>Ville :</label>
+                <input type="text" value="{{ client.adresse_ville }}" disabled style="background: #eee; width: 100%;">
+            </div>
+            
+            {% else %}
+
+            <div class="magasin-detail-card" style="flex: 1; min-width: 300px;">
+                <h3>👤 Client (Facturation)</h3>
+                <p><em>Connecté en tant que :</em></p>
+                
+                <label>Nom :</label>
+                <input type="text" name="new_nom" placeholder="Nom" required style="width: 100%; margin-bottom: 10px;">
+
+                <label>Prenom :</label>
+                <input type="text" name="new_prenom" placeholder="Prenom" required style="width: 100%; margin-bottom: 10px;">
+                
+                <label>Email :</label>
+                <input type="text" name="new_mail_cl" placeholder="ex: nom@email.com" required style="width: 100%; margin-bottom: 10px;">
+
+                <label for="mdp">Mot de passe</label>
+                <input type="password" id="mdp" name="mdp" placeholder="Votre mot de passe" required style="width: 100%; margin-bottom: 10px;">
+            
+                <label for="confirm_mdp">Confirmer le mot de passe</label>
+                <input type="password" id="confirm_mdp" name="confirm_mdp" placeholder="Répétez le mot de passe" required style="width: 100%; margin-bottom: 10px;">
+
+                
+                <label>Téléphone :</label>
+                <input type="text" name="new_num_cl" placeholder="ex : 06 12 34 56 78" required style="width: 100%; margin-bottom: 10px;">
+                
+                <label>Rue :</label>
+                <input type="text" name="adresse_rue" required style="width: 100%; margin-bottom: 10px;"
+                
+                <label>Code Postal :</label>
+                <input type="text" name="adresse_cp" required style="width: 100%; margin-bottom: 10px;">
+                
+                <label>Ville :</label>
+                <input type="text" name="adresse_ville" required style="width: 100%; margin-bottom: 10px;">
+
+                <input type="checkbox" id="adherent" name="aherent" value="True">
+                <label for="adherent" style="font-size: 0.9em; color: #666;"> Devenir adhérent pour 10€ <br> profitez -10% sur toutes vos prochaines commandes</label>
+            </div>
+            {% endif %}
+            
+            <div class="magasin-detail-card" style="flex: 1; min-width: 300px;">
+                <h3>🎁 À qui offrir ces fleurs ?</h3>
+                
+                {% if anciens %}
+                    <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="margin-top: 0; color: #871945;">Option A : Choisir dans le carnet d'adresses</h4>
+                        {% for anc in anciens %}
+                        <div style="margin-bottom: 8px;">
+                            <input type="radio" name="choix_destinataire" value="{{ anc.numdestinataire }}" id="dest_{{ anc.numdestinataire }}">
+                            <label for="dest_{{ anc.numdestinataire }}" style="cursor: pointer;">
+                                <strong>{{ anc.nom }} {{ anc.prenom }}</strong> - {{ anc.rue }} ({{ anc.codepostal }})
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <p style="text-align: center; font-weight: bold;">— OU —</p>
+                {% endif %}
+
+                <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; border: 1px dashed #38761d;">
+                    <h4 style="margin-top: 0; color: #38761d;">Option B : Créer un nouveau destinataire</h4>
+                    <p style="font-size: 0.9em; color: #666;">Si vous remplissez ceci, la sélection au-dessus sera ignorée.</p>
+                    
+                    <label>Nom :</label>
+                    <input type="text" name="new_nom_d" placeholder="Nom du destinataire" style="width: 100%; margin-bottom: 10px;">
+                    
+                    <label>Prénom :</label>
+                    <input type="text" name="new_prenom_d" placeholder="Prénom" style="width: 100%; margin-bottom: 10px;">
+                    
+                    <label>Rue (Numéro et voie) :</label>
+                    <input type="text" name="new_rue_d" placeholder="Ex: 10 rue de la Paix" style="width: 100%; margin-bottom: 10px;">
+                    
+                    <label>Code Postal :</label>
+                    <input type="text" name="new_cp_d" placeholder="Ex: 75001" style="width: 100%;">
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <label for="message" style="font-weight: bold;">💌 Message accompagnant les fleurs :</label>
+                    <textarea name="message" id="message" rows="3" style="width: 100%; margin-top: 5px;" placeholder="Écrivez votre message ici..."></textarea>
+                </div>
+
+                {% if total %}
+                <div style="font-size: 1.5rem; font-weight: bold; text-align: right; margin-top: 30px; color: #871945; padding-top: 10px; border-top: 2px solid #f0f0f0;">
+                    Total de la Commande : {{ total }} €
+                </div>
+                {% endif %}
+                <button type="submit" class="btn" style="background-color: #871945; width: 100%; margin-top: 20px; font-size: 1.1em;">
+                    Confirmer et Payer →
+                </button>
+
+            </div>
+        </form>
+    </main>
+</body>
+</html>

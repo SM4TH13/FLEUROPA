@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fleuropa</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="/accueil">FLEUROPA</a></div>
+            <ul class="nav-links">
+                <li><a href="/accueil">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="boutiques-grid-container">
+
+        {% for boutique in liste_boutiques %} 
+        
+        <div class="boutique-card">
+            <a href="/boutiques/{{ boutique.idmagasin }}">
+                <h3>{{ boutique.lieu }}</h3>
+            </a>
+        </div>
+        
+        {% endfor %} 
+        
+    </main>
+
+    <section class="pagination-controls" style="text-align: center; margin-bottom: 50px;">
+        
+        {% if page_actuelle > 1 %}
+            <a href="{{ url_for('boutiques', page=page_actuelle - 1) }}" 
+               style="padding: 10px 15px; border: 1px solid #871945; color: #871945; text-decoration: none; margin-right: 15px; border-radius: 5px;">
+                ← Précédent
+            </a>
+        {% else %}
+            <span style="padding: 10px 15px; border: 1px solid #ccc; color: #ccc; margin-right: 15px; border-radius: 5px;">
+                ← Précédent
+            </span>
+        {% endif %}
+
+        <span style="font-weight: bold; font-size: 1.1em; color: #1a1a1a;">
+            Page {{ page_actuelle }} sur {{ total_pages }}
+        </span>
+
+        {% if page_actuelle < total_pages %}
+            <a href="{{ url_for('boutiques', page=page_actuelle + 1) }}" 
+               style="padding: 10px 15px; background-color: #871945; color: white; text-decoration: none; margin-left: 15px; border-radius: 5px;">
+                Suivant →
+            </a>
+        {% else %}
+            <span style="padding: 10px 15px; border: 1px solid #ccc; color: #ccc; margin-left: 15px; border-radius: 5px;">
+                Suivant →
+            </span>
+        {% endif %}
+
+    </section>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Panier - Fleuropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="/accueil">FLEUROPA</a></div>
+            <ul class="nav-links">
+                <li><a href="/accueil">Accueil</a></li>
+                <li><a href="/bouquets">Bouquets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="magasin-detail-card" style="max-width: 800px; margin: 50px auto;">
+        <h2>🛒 Votre Panier</h2>
+        
+        {% if panier != {} %}
+            
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #871945;">
+                        <th style="padding: 10px; text-align: left;">Article</th>
+                        <th style="padding: 10px; text-align: center;">Quantité</th>
+                        <th style="padding: 10px; text-align: right;">Prix Unitaire</th>
+                        <th style="padding: 10px; text-align: right;">Sous-Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for id, quantite in panier.items() %}
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px; text-align: left;">{{ infos[id].modele }} ({{ infos[id].taille }})</td>
+                        <td style="padding: 10px; text-align: center;">{{ quantite }}</td>
+                        <td style="padding: 10px; text-align: right;">{{ infos[id].prixunitaire }} €</td>
+                        <td style="padding: 10px; text-align: right;">{{ (quantite * infos[id].prixunitaire) }} €</td>
+                        <td style="padding: 10px; text-align: center;">
+                            <a href="/supprimer_bouquet/{{ id }}" 
+                               style="color: red; text-decoration: none; font-weight: bold; border: 1px solid red; padding: 5px 10px; border-radius: 5px;">
+                                🗑️ Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div style="font-size: 1.5rem; font-weight: bold; text-align: right; margin-top: 30px; color: #871945; padding-top: 10px; border-top: 2px solid #f0f0f0;">
+                Total de la Commande : {{ total }} €
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <a href="/bouquets" class="btn" 
+                   style="background-color: #666; padding: 10px 20px;">
+                    ← Continuer les achats
+                </a>
+                <a href="/confirmer_commande" class="btn" 
+                   style="background-color: #871945; padding: 10px 20px;">
+                    Valider la commande →
+                </a>
+            </div>
+
+        {% else %}
+            <p style="margin-top: 20px;">Votre panier est vide pour le moment.</p>
+            <a href="/bouquets" class="btn" style="background-color: #871945; margin-top: 20px;">
+                Découvrir nos bouquets
+            </a>
+        {% endif %}
+    </main>
+    
+    <footer>
+        <p>© 2024 Fleuropa — Tous droits réservés</p>
+    </footer>
+</body>
+</html>

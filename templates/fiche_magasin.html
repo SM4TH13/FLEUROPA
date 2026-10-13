@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleuropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<header>
+    <nav>
+        <div class="logo"><a href="/accueil">FLEUROPA</a></div>
+        <ul class="nav-links">
+            <li><a href="/accueil">Accueil</a></li>
+            <li><a href="/boutiques">Boutiques</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="magasin-detail-card">
+        <h2>{{ magasin.lieu }}</h2>
+        
+        <div class="magasin-info">
+            <p><strong>Responsable:</strong> {{ magasin.responsable }}</p>
+            <p><strong>Code Postal:</strong> {{ magasin.codepostal }}</p>
+            <p><strong>ID Magasin:</strong> {{ magasin.idmagasin }}</p>
+            
+            <p style="margin-top: 30px; font-style: italic; color: #666;">
+                Plus de détails et d'informations de contact sur place.
+            </p>
+            <a href="https://www.google.com/maps/search/?api=1&query={{ magasin.codepostal }}+{{ magasin.lieu }}" 
+               class="btn-map" target="_blank">
+               Voir sur la carte 🗺️
+            </a>
+
+        </div>
+        
+        <a href="/boutiques" class="btn" style="margin-top: 20px;">Retour à la liste des boutiques</a>
+    </div>
+</main>
+
+<footer>
+    <p>© 2024 Fleuropa — Tous droits réservés</p>
+</footer>
+
+</body>
+</html>

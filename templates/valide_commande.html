@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Commande Validée</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="/accueil">FLEUROPA</a></div>
+            <ul class="nav-links">
+                <li><a href="/accueil">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <div class="login-card" style="text-align: center;">
+            <h2 style="color: #38761d;">✅ Merci !</h2>
+            <p>Votre commande a été validée avec succès.</p>
+            
+            <div style="background-color: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 10px;">
+                <h3>Commande N° {{ id_commande }} 3</h3>
+                <p>Elle est en cours de préparation.</p>
+            </div>
+
+            <a href="/accueil" class="btn-login" style="text-decoration: none; display: inline-block;">Retour à l'accueil</a>
+        </div>
+    </main>
+</body>
+</html>

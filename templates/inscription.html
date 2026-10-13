@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONNEXION</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo"><a href="/accueil">FLEUROPA</a></div>
+        <ul class="nav-links">
+            <li><a href="/accueil">Accueil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="login-container">
+
+    <div class="login-card">
+        <h2>Inscription</h2>
+        <p>Inscrivez-vous pour accéder à vos commandes et ne pas rater nos offres.</p>
+
+        <form action="/inscription" method="POST" class="login-form">
+
+            <label for="nom"> Votre nom</label>
+            <input type="text" id="nom" name="nom" placeholder="" required>
+
+            <label for="prenom"> Votre prenom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="" required>
+
+            <label for="numero"> numéro de téléphone</label>
+            <input type="text" id="numero" name="numero" placeholder="EX: 0612345678" required>
+
+            <label for="mail"> adresse mail</label>
+            <input type="text" id="mail" name="mail" placeholder="EX: jean@gmail.com" required>
+
+            <label for="mdp">Mot de passe</label>
+            <input type="password" id="mdp" name="mdp" placeholder="Votre mot de passe" required>
+        
+            <label for="confirm_mdp">Confirmer le mot de passe</label>
+            <input type="password" id="confirm_mdp" name="confirm_mdp" placeholder="Répétez le mot de passe" required>
+        
+            <button type="submit" class="btn-login">S'inscrire</button>
+
+            <p class="signup-text">
+                vous avez un compte Fleuropa 
+                <a href="/connecter">se connecter</a>
+            </p>
+        </form>
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2024 Fleuropa — Tous droits réservés</p>
+</footer>
+
+</body>
+</html>

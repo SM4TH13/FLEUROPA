@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleuropa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo"><a href="/accueil">FLEUROPA</a></div>
+        <ul class="nav-links">
+            <li><a href="/accueil">Accueil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="login-container">
+
+    <div class="login-card"> 
+        <h2>Connexion</h2>
+        <p>Connectez-vous pour accéder à vos commandes</p>
+
+        <form action="/connecter" method="POST" class="login-form">
+            <label for="commande">n°Commande </label>
+            <input type="text" id="commande" name="commande" placeholder="" required>
+            
+            <label for="code">Code Confidentiel</label>
+            <input type="password" id="code" name="code" placeholder="" required>
+        
+            <button type="submit" class="btn-login">Se connecter</button>
+
+            <p class="signup-text">
+                Pas encore membre ?  
+                <a href="/inscription">Créer un compte</a>
+            </p>
+            </form>
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2024 Fleuropa — Tous droits réservés</p>
+</footer>
+
+</body>
+</html>
